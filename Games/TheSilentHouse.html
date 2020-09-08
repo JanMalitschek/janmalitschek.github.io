@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="stylesheet" href="../Style.css">
+        <title>The Silent House</title>
+    </head>
+    <body>
+        <center>
+            <table class="navbar">
+                <tr>
+                    <td><button onclick = "window.location.href = '../Games.html';" class="navbarButton">Games - Back</button></td>
+                </tr>
+            </table>
+        </center>
+    </body>
+    <body>
+        <a name="top"></a>
+        <center>
+            <div class="mainContent">
+                The Silent House
+                <p class="descriptionText">
+                    A game about a drug investigator who get's dragged into something much worse than he anticipated.<br>
+                    This game started as a fun little project during the winter holidays of 2016. At some point I decided<br>
+                    to turn it into a finished game and released a demo version which got pretty popular.<br>
+                    The game can be found <a href="https://gamejolt.com/games/TheSilentHouse/254383">here</a>
+                </p>
+                    <div onclick="modal('TheSilentHouse/TSH_03.png', 'A part of the delivery courtyard');" class="Image"><img src="TheSilentHouse/TSH_03.png" class="previewImageContent"></div>
+                <p class="descriptionText">
+                    In the process of making this game I was able to explore many new techniques in level design and programming.<br>
+                    In retrospective it does have many flaws but it still taught me a lot of valuable lessons in many fields of<br>
+                    gamedesign and lead me to meeting a bunch of awesome people who I still work with today.
+                </p>
+                    <div onclick="modal('TheSilentHouse/TSH_04.png', 'The inside of the boathouse');" class="Image"><img src="TheSilentHouse/TSH_04.png" class="previewImageContent"></div>
+                <p class="descriptionText">
+                    It is important to mention that this was a complete solo project up until the release of the Anniversary Update,
+                    where I got help with ideas and writing the story.
+                </p>
+            </div>
+        </center>
+    </body>
+    <body>
+        <center>
+            <div style="background-color: transparent; margin: 2%; padding: 0; width: 400px">
+                <button onclick = "window.location.href = 'TheSilentHouse.html#top';" class="navbarButton">Back to top</button>
+            </div>
+        </center>
+    </body>
+    <body>
+        <div id="modalBG" class="modalBackground">
+            <div id="modalCont" class="modal">
+                <div id="modal" class="ModalImage"><img id="modalImg" src="HouseItGoing/HouseItGoing.png" class="modalImageContent"></div>
+            </div>
+            <div id="modalSub" class="modalText">
+                Poope
+            </div>
+            <div onclick="modalExit();" class="modalExit">
+                ✖
+            </div>
+        </div>
+        <script src="../ModalImagePreview.js"></script>
+    </body>
+</html>

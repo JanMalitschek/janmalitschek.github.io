@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="stylesheet" href="../Style.css">
+        <title>Pixelated Reverse Beartrap</title>
+    </head>
+    <body>
+        <a name="top"></a>
+        <center>
+            <table class="navbar">
+                <tr>
+                    <td><button onclick = "window.location.href = '../3DArt.html';" class="navbarButton">3D Art - Back</button></td>
+                </tr>
+            </table>
+        </center>
+    </body>
+    <body>
+        <center>
+            <div class="mainContent">
+                Pixelated Reverse Beartrap
+                <div onclick="modal('ReverseBeartrap_Textured.png', 'The trap in it\'s closed state');" class="Image"><img src="ReverseBeartrap_Textured.png" class="previewImageContent"></div>
+                <p class="descriptionText">
+                    This is a stylized/pixelated version of the infamous reverse beatrap from the Saw movies.
+                </p>
+                <div onclick="modal('ReverseBeartrapOpen_Textured.png', 'The trap opened and bloody');" class="Image"><img src="ReverseBeartrapOpen_Textured.png" class="previewImageContent"></div>
+                <p class="descriptionText">
+                    The beartrap in it's opened state.
+                </p>
+            </div>
+        </center>
+    </body>
+    <body>
+        <center>
+            <div style="background-color: transparent; margin: 2%; padding: 0; width: 400px">
+                <button onclick = "window.location.href = 'ReverseBeartrap.html#top';" class="navbarButton">Back to top</button>
+            </div>
+        </center>
+    </body>
+    <body>
+        <div id="modalBG" class="modalBackground">
+            <div id="modalCont" class="modal">
+                <div id="modal" class="ModalImage"><img id="modalImg" src="HouseItGoing/HouseItGoing.png" class="modalImageContent"></div>
+            </div>
+            <div id="modalSub" class="modalText">
+                Poope
+            </div>
+            <div onclick="modalExit();" class="modalExit">
+                ✖
+            </div>
+        </div>
+        <script src="../ModalImagePreview.js"></script>
+    </body>
+</html>

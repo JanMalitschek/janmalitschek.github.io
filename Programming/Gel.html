@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="stylesheet" href="../Style.css">
+        <title>Gel</title>
+    </head>
+    <body>
+        <center>
+            <table class="navbar">
+                <tr>
+                    <td><button onclick = "window.location.href = '../Programming.html';" class="navbarButton">Programming - Back</button></td>
+                </tr>
+            </table>
+        </center>
+    </body>
+    <body>
+        <a name="top"></a>
+        <center>
+            <div class="mainContent">
+                Gel
+                <p class="descriptionText">
+                   Gel (or Gel-Engine as it was titled originally) is a game engine library for C++ using OpenGL, GLFW, GLEW,
+                   OpenAL and GLM.<br>
+                   The Github repository for Gel can be found <a href="https://github.com/NicolasLow/Gel">here</a>
+                </p>
+                <div onclick="modal('Gel/Gel_Logo.png', 'The new Gel Logo');" class="Image"><img src="Gel/Gel_Logo.png" class="previewImageContent"></div>
+                <p class="descriptionText">
+                    This is the current Gel Logo. It was different at first but I changed it at some point when I upgraded Gel
+                    from a header only library to a dynamic link library.
+                </p>
+                <div onclick="modal('Gel/GelEngine_Logo.png', 'The old Gel-Engine Logo');" class="Image"><img src="Gel/GelEngine_Logo.png" class="previewImageContent"></div>
+                <p class="descriptionText">
+                    This is the old Gel-Engine Logo<br>
+                </p>
+                <p class="descriptionText">
+                    To put Gel to good use I created two major test projects recreating two classic games.
+                </p>
+                <div onclick="modal('Gel/Wolfenstein3D_Clone.png', 'A Wolfenstein3D clone using the old Gel-Engine');" class="Image"><img src="Gel/Wolfenstein3D_Clone.png" class="previewImageContent"></div>
+                <p class="descriptionText">
+                    The project that I created for the old Gel-Engine - a Wolfenstein 3D clone.<br>
+                    It's not fully functional or anything but it has the basic features such as loading a level from a file,
+                    animated doors, shooting and enemies, which don't do much but can be killed.
+                </p>
+                <div onclick="modal('Gel/GelCraft.png', 'A simple minecraft clone using the new Gel library');" class="Image"><img src="Gel/GelCraft.png" class="previewImageContent"></div>
+                <p class="descriptionText">
+                    The second project was to test the new Gel and was a Minecraft clone. Like before it's nowhere near 
+                    complete and only features multithreaded chunk generation really.
+                </p>
+            </div>
+        </center>
+    </body>
+    <body>
+        <center>
+            <div style="background-color: transparent; margin: 2%; padding: 0; width: 400px">
+                <button onclick = "window.location.href = 'Gel.html#top';" class="navbarButton">Back to top</button>
+            </div>
+        </center>
+    </body>
+    <body>
+        <div id="modalBG" class="modalBackground">
+            <div id="modalCont" class="modal">
+                <div id="modal" class="ModalImage"><img id="modalImg" src="HouseItGoing/HouseItGoing.png" class="modalImageContent"></div>
+            </div>
+            <div id="modalSub" class="modalText">
+                Poope
+            </div>
+            <div onclick="modalExit();" class="modalExit">
+                ✖
+            </div>
+        </div>
+        <script src="../ModalImagePreview.js"></script>
+    </body>
+</html>

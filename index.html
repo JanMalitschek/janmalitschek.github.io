@@ -1,6 +1,67 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
+    <head>
+        <link rel="stylesheet" href="Style.css">
+        <title>Portfolio - Jan Malitschek</title>
+        <meta charset="UTF-8">
+    </head>
     <body>
-        <h1>Hello, Suffering!</h1>
+        <center>
+            <largeNav>
+                <table class="navbar">
+                    <tr>
+                        <td><button onclick = "window.location.href = 'Index.html';" class="navbarButtonSelected">Home</button></td>
+                        <td><button onclick = "window.location.href = 'Overview.html';" class="navbarButton">Overview</button></td>
+                        <td><button onclick = "window.location.href = 'DigitalArt.html';" class="navbarButton">Digital Art</button></td>
+                        <td><button onclick = "window.location.href = '3DArt.html';" class="navbarButton">3D Art</button></td>
+                        <td><button onclick = "window.location.href = 'Games.html';" class="navbarButton">Games</button></td>
+                        <td><button onclick = "window.location.href = 'Programming.html';" class="navbarButton">Programming</button></td>
+                    </tr>
+                </table>
+            </largeNav>
+            <smallNav>
+                <table class="navbar">
+                    <tr>
+                        <td>
+                            <button id="hamburger" class="navbarButtonSelected" style="text-align: center; padding-left: 0">Menu ▲</button>
+                        </td>
+                    </tr>
+                </table>
+                <div id="menu" style="display:none">
+                    <table class="navbar">
+                        <tr>
+                            <td><button onclick = "window.location.href = 'Index.html';" class="navbarButtonSelected">Home</button></td>
+                        </tr>
+                        <tr>
+                            <td><button onclick = "window.location.href = 'Overview.html';" class="navbarButton">Overview</button></td>
+                        </tr>
+                        <tr>
+                            <td><button onclick = "window.location.href = 'DigitalArt.html';" class="navbarButton">Digital Art</button></td>
+                        </tr>
+                        <tr>
+                            <td><button onclick = "window.location.href = '3DArt.html';" class="navbarButton">3D Art</button></td>
+                        </tr>
+                        <tr>
+                            </tr><td><button onclick = "window.location.href = 'Games.html';" class="navbarButton">Games</button></td>
+                        </tr>
+                        <tr>
+                            <td><button onclick = "window.location.href = 'Programming.html';" class="navbarButton">Programming</button></td>
+                        </tr>
+                    </table>
+                </div>
+            </smallNav>
+        </center>
+        <script src="HamburgerMenu.js"></script>
+    </body>
+    <body>
+        <center>
+            <div style="background-color: transparent; margin: 5%; padding: 0;">
+                <img src="JM_Logo.png" style="width: 40%"><br>
+                Jan Malitschek
+                <p class="descriptionText" style="text-align: center">
+                    A wide spreaded set of skills.
+                </p>
+            </div>
+        </center>
     </body>
 </html>

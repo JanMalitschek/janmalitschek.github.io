@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="stylesheet" href="../Style.css">
+        <title>In Somnio</title>
+    </head>
+    <body>
+        <center>
+            <table class="navbar">
+                <tr>
+                    <td><button onclick = "window.location.href = '../Games.html';" class="navbarButton">Games - Back</button></td>
+                </tr>
+            </table>
+        </center>
+    </body>
+    <body>
+        <a name="top"></a>
+        <center>
+            <div class="mainContent">
+                In Somnio
+                    <div onclick="modal('InSomnio/IS_01.png', 'Official Disc Cover Art');" class="Image"><img src="InSomnio/IS_01.png" class="previewImageContent"></div>
+                <p class="descriptionText">
+                    In Somnio is my attempt at a dream journal in game form, created for the <a href="https://hauntedps1.itch.io/demodisc2020">Haunted PS1 Demo Disc 2020</a><br>
+                    I've been keeping a dream journal for quite a while and decided to pick some of the shorter dreams and turn them into interactive experiences.<br>
+                    Hence this game doesn't make much sense and is quite surreal.
+                    The game can be found <a href="https://jan-malitschek.itch.io/in-somnio">here</a> separately from the Demo Disc.
+                </p>
+                <div onclick="modal('InSomnio/IS_02.gif', 'The first dream in the game');" class="Image"><img src="InSomnio/IS_02.gif" class="previewImageContent"></div>
+                <p class="descriptionText">
+                    In Somnio features 5 different dreams in total which don't have anything specific in common apart from being quite short.
+                </p>
+                <div onclick="modal('InSomnio/IS_03.gif', 'The second dream in the game');" class="Image"><img src="InSomnio/IS_03.gif" class="previewImageContent"></div>
+                <p class="descriptionText">
+                    In Somnio was the first game where I was able to achieve proper PSX looking graphics combining custom shaders and post processing.<br>
+                    Apart from that I utilized vertex colors for the first time, which of course were extremely popular during the PSX era,<br>
+                    however back when I made the game I did not realize how widely they're still being used today.
+                </p>
+            </div>
+        </center>
+    </body>
+    <body>
+        <center>
+            <div style="background-color: transparent; margin: 2%; padding: 0; width: 400px">
+                <button onclick = "window.location.href = 'InSomnio.html#top';" class="navbarButton">Back to top</button>
+            </div>
+        </center>
+    </body>
+    <body>
+        <div id="modalBG" class="modalBackground">
+            <div id="modalCont" class="modal">
+                <div id="modal" class="ModalImage"><img id="modalImg" src="HouseItGoing/HouseItGoing.png" class="modalImageContent"></div>
+            </div>
+            <div id="modalSub" class="modalText">
+                Poope
+            </div>
+            <div onclick="modalExit();" class="modalExit">
+                ✖
+            </div>
+        </div>
+        <script src="../ModalImagePreview.js"></script>
+    </body>
+</html>

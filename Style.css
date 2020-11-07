@@ -68,7 +68,7 @@ body{
 }
 
 .previewTextContent{
-    padding: 10%;
+    padding: 40px;
     margin: 0;
     background-color: #222222;
     position: relative;
@@ -96,22 +96,27 @@ body{
     font-family: Bebas;
     color: #FFFFFF;
     font-size: 30px;
-    background-color: transparent;
+    background-color: #111111;
     border: none;
     outline: none;
-    height: 20%;
+    height: 40px;
     width: 100%;
     text-align: center;
     padding: 0;
     margin: 0;
     table-layout: fixed;
     border-collapse: collapse;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
 }
 
 a{
-    font-family: Bebas;
+    font-family: Goodlight;
     color: #5a6d92;
-    font-size: 30px;
+    font-size: 20px;
     text-decoration: none;
 }
 
@@ -221,6 +226,27 @@ smallCont{
     text-align: left;
     cursor: pointer;
 }
+.flexiblePreviewText{
+    padding: 0;
+    margin: 0;
+    background-color: #222222;
+    width: 400px;
+    position: relative;
+    vertical-align: middle;
+    text-align: left;
+    cursor: pointer;
+}
+.aboutMeText{
+    padding: 0;
+    margin: 0;
+    background-color: #222222;
+    left: 0;
+    right: 0;
+    position: relative;
+    vertical-align: middle;
+    text-align: left;
+    cursor: pointer;
+}
 
 @media screen and (max-width: 900px){
     largeCont{
@@ -325,4 +351,26 @@ smallCont{
     vertical-align: middle;
     width: 100%;
     height: 100%;
+}
+
+.leftTile{
+    padding-left: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.rightTile{
+    padding-right: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+td{
+    overflow: hidden;
+}
+
+.textHighlight{
+    font-family: Goodlight;
+    color: #925a81;
+    font-size: 20px;
+    text-decoration: none;
 }

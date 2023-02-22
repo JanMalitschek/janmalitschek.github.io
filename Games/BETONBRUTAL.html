@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="stylesheet" href="../Style.css">
+        <title>BETON BRUTAL</title>
+    </head>
+    <body>
+        <center>
+            <table class="navbar">
+                <tr>
+                    <td><button onclick = "window.location.href = '../index.html';" class="navbarButton">Back</button></td>
+                </tr>
+            </table>
+        </center>
+    </body>
+    <body>
+        <a name="top"></a>
+        <center>
+            <div class="mainContent">
+                BETON BRUTAL
+                    <div onclick="modal('BETONBRUTAL/BB_01.gif', '');" class="Image"><img src="BETONBRUTAL/BB_01.gif" class="previewImageContent"></div>
+                <p class="descriptionText">
+                    BETON BRUTAL is a first-person platformer set inside a massive overgrown concrete tower.<br>
+                    The goal is to simply reach the top which becomes progressively more difficult. But the greatest challenge
+                    is to not fall. The game has no checkpoints so a single misstep might cost a lot of progress.<br>
+                    The game is not available yet.
+                </p>
+                    <div onclick="modal('BETONBRUTAL/BB_02.png', '');" class="Image"><img src="BETONBRUTAL/BB_02.png" class="previewImageContent"></div>
+                <p class="descriptionText">
+                    Next to creating a satisfying platforming controller the greatest challenge was getting the visuals right.<br>
+                    I wanted to create the overgrown remnants of brutalist architecture.
+                    To do so I employed a bunch of different graphical effects such as macro-variation on the concrete,
+                    vertex-color-controlled moss growth, a realistic water shader, light shafts, fake ambient occlusion
+                    as well as fake height fog.<br>
+                    This game also contains my best looking foliage to date.<br>
+                    Apart from that I took great care when it came to sound design. Almost every sound in the game I recorded myself.<br>
+                    When exploring the environment the player can hear their footsteps on the concrete, rustling leaves when walking through
+                    foliage, the muffled ambience of being underwater, the wind during a fall, birds off in the distance and the
+                    eerie sounds the tower itself gives off.<br>
+                    The entire experience is accompanied by a calm ambient OST.
+                </p>
+                    <div onclick="modal('BETONBRUTAL/BB_03.png', '');" class="Image"><img src="BETONBRUTAL/BB_03.png" class="previewImageContent"></div>
+            </div>
+        </center>
+    </body>
+    <body>
+        <center>
+            <div style="background-color: transparent; margin: 2%; padding: 0; width: 400px">
+                <button onclick = "window.location.href = 'TrialsOfArgolis.html#top';" class="navbarButton">Back to top</button>
+            </div>
+        </center>
+    </body>
+    <body>
+        <div id="modalBG" class="modalBackground">
+            <div id="modalCont" class="modal">
+                <div id="modal" class="ModalImage"><img id="modalImg" src="HouseItGoing/HouseItGoing.png" class="modalImageContent"></div>
+            </div>
+            <div id="modalSub" class="modalText">
+                Poope
+            </div>
+            <div onclick="modalExit();" class="modalExit">
+                ✖
+            </div>
+        </div>
+        <script src="../ModalImagePreview.js"></script>
+    </body>
+</html>

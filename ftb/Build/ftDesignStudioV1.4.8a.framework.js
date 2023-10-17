@@ -1270,29 +1270,29 @@ var tempDouble;
 var tempI64;
 
 var ASM_CONSTS = {
- 5326644: function() {
+ 5326692: function() {
   Module["emscripten_get_now_backup"] = performance.now;
- },
- 5326699: function($0) {
-  performance.now = function() {
-   return $0;
-  };
  },
  5326747: function($0) {
   performance.now = function() {
    return $0;
   };
  },
- 5326795: function() {
+ 5326795: function($0) {
+  performance.now = function() {
+   return $0;
+  };
+ },
+ 5326843: function() {
   performance.now = Module["emscripten_get_now_backup"];
  },
- 5326850: function() {
+ 5326898: function() {
   return Module.webglContextAttributes.premultipliedAlpha;
  },
- 5326911: function() {
+ 5326959: function() {
   return Module.webglContextAttributes.preserveDrawingBuffer;
  },
- 5326975: function() {
+ 5327023: function() {
   return Module.webglContextAttributes.powerPreference;
  }
 };
@@ -3304,6 +3304,37 @@ function _JS_Video_Width(video) {
  return videoInstances[video].videoWidth;
 }
 
+function _LoadFileFromIDB(fileName, callback) {
+ let db;
+ const request = window.indexedDB.open("ftDesignStudio", 1);
+ request.onerror = function(event) {
+  console.error(`IndexedDB error: ${event.target.errorCode}`);
+ };
+ request.onupgradeneeded = function(event) {
+  db = event.target.result;
+  const store = db.createObjectStore("files", {
+   keyPath: "name"
+  });
+ };
+ request.onsuccess = function(event) {
+  db = event.target.result;
+  const transaction = db.transaction("files", "readwrite");
+  const store = transaction.objectStore("files");
+  const query = store.get(fileName);
+  query.onerror = function(event) {
+   console.error("Something went wrong!");
+  };
+  query.onsuccess = function(event) {
+   console.log(query.result.content);
+   var str = query.result.content;
+   var len = lengthBytesUTF8(str) + 1;
+   var strPtr = _malloc(len);
+   stringToUTF8(str, strPtr, len);
+   Module.dynCall_v1(callback, strPtr);
+  };
+ };
+}
+
 function _SaveFileToIDB(fileName, fileContent) {
  let db;
  const request = window.indexedDB.open("ftDesignStudio", 1);
@@ -3313,7 +3344,7 @@ function _SaveFileToIDB(fileName, fileContent) {
  request.onupgradeneeded = function(event) {
   db = event.target.result;
   const store = db.createObjectStore("files", {
-   keypath: "name"
+   keyPath: "name"
   });
  };
  request.onsuccess = function(event) {
@@ -13861,6 +13892,7 @@ var asmLibraryArg = {
  "JS_Video_Time": _JS_Video_Time,
  "JS_Video_UpdateToTexture": _JS_Video_UpdateToTexture,
  "JS_Video_Width": _JS_Video_Width,
+ "LoadFileFromIDB": _LoadFileFromIDB,
  "SaveFileToIDB": _SaveFileToIDB,
  "__assert_fail": ___assert_fail,
  "__cxa_allocate_exception": ___cxa_allocate_exception,

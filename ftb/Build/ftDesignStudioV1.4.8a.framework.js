@@ -3307,6 +3307,7 @@ function _JS_Video_Width(video) {
 function _LoadFileFromIDB(fileName, callback) {
  let db;
  const request = window.indexedDB.open("ftDesignStudio", 1);
+ const fileNameStr = UTF8ToString(fileName);
  request.onerror = function(event) {
   console.error(`IndexedDB error: ${event.target.errorCode}`);
  };
@@ -3320,7 +3321,7 @@ function _LoadFileFromIDB(fileName, callback) {
   db = event.target.result;
   const transaction = db.transaction("files", "readwrite");
   const store = transaction.objectStore("files");
-  const query = store.get(fileName);
+  const query = store.get(fileNameStr);
   query.onerror = function(event) {
    console.error("Something went wrong!");
   };
@@ -3340,6 +3341,8 @@ function _LoadFileFromIDB(fileName, callback) {
 function _SaveFileToIDB(fileName, fileContent) {
  let db;
  const request = window.indexedDB.open("ftDesignStudio", 1);
+ const fileNameStr = UTF8ToString(fileName);
+  const fileContentStr = UTF8ToString(fileContent);
  request.onerror = function(event) {
   console.error(`IndexedDB error: ${event.target.errorCode}`);
  };
@@ -3354,8 +3357,8 @@ function _SaveFileToIDB(fileName, fileContent) {
   const transaction = db.transaction("files", "readwrite");
   const store = transaction.objectStore("files");
   store.put({
-   name: UTF8ToString(fileName),
-   content: UTF8ToString(fileContent)
+   name: fileNameStr,
+   content: fileContentStr
   });
   transaction.oncomplete = function() {
    console.log("Completed transaction!");

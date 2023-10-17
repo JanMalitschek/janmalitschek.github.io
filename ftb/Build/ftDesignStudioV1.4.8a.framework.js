@@ -3320,7 +3320,6 @@ function _SaveFileToIDB(fileName, fileContent) {
   db = event.target.result;
   const transaction = db.transaction("files", "readwrite");
   const store = transaction.objectStore("files");
-  const nameIndex = store.index("file_name");
   store.put({
    name: fileName,
    content: fileContent

@@ -99,13 +99,15 @@
       }
 
       loadingBar.style.display = "block";
-
+      
+      var unityGameInstance = null;
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
               }).then((unityInstance) => {
+                unityGameInstance = unityInstance;
                 loadingBar.style.display = "none";
                 fullscreenButton.onclick = () => {
                   unityInstance.SetFullscreen(1);
@@ -116,6 +118,16 @@
             };
 
       document.body.appendChild(script);
+
+      window.addEventListener("beforeunload", function (e) {
+        unityGameInstance.SendMessage("Managers", "SaveToIDB");
+        e.preventDefault();
+
+        // var confirmationMessage = "Exit ft DesignStudio?\nYour current progress will be saved locally.";
+
+        // (e || window.event).returnValue = confirmationMessage; //Gecko + IE
+        // return confirmationMessage;                            //Webkit, Safari, Chrome
+      });
 
     </script>
   </body>

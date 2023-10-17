@@ -3325,12 +3325,14 @@ function _LoadFileFromIDB(fileName, callback) {
    console.error("Something went wrong!");
   };
   query.onsuccess = function(event) {
+    if(query.result){
    console.log(query.result.content);
    var str = query.result.content;
    var len = lengthBytesUTF8(str) + 1;
    var strPtr = _malloc(len);
    stringToUTF8(str, strPtr, len);
    Module.dynCall_v1(callback, strPtr);
+    }
   };
  };
 }
@@ -3352,8 +3354,8 @@ function _SaveFileToIDB(fileName, fileContent) {
   const transaction = db.transaction("files", "readwrite");
   const store = transaction.objectStore("files");
   store.put({
-   name: fileName,
-   content: fileContent
+   name: UTF8ToString(fileName),
+   content: UTF8ToString(fileContent)
   });
   transaction.oncomplete = function() {
    console.log("Completed transaction!");

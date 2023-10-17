@@ -3332,7 +3332,7 @@ function _LoadFileFromIDB(fileName, callback) {
    var len = lengthBytesUTF8(str) + 1;
    var strPtr = _malloc(len);
    stringToUTF8(str, strPtr, len);
-   Module.dynCall_v1(callback, strPtr);
+   Module.dynCall_vi(callback, strPtr);
     }
   };
  };

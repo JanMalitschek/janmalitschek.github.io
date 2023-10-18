@@ -118,7 +118,8 @@
             };
 
       document.body.appendChild(script);
-
+      
+      //Warn the user before leaving the site and save the current session to IndexedDB
       window.addEventListener("beforeunload", function (e) {
         unityGameInstance.SendMessage("Managers", "SaveToIDB");
         e.preventDefault();
@@ -127,6 +128,29 @@
 
         // (e || window.event).returnValue = confirmationMessage; //Gecko + IE
         // return confirmationMessage;                            //Webkit, Safari, Chrome
+      });
+
+      //Prevent scroll clicking
+      window.onmousedown = function(e) {
+        if(e.button == 1 || e.button == 2){
+            e.preventDefault();
+        }
+      };
+
+      //Prevent some browser shortcuts that the app uses
+      window.addEventListener("keydown", function(e) {
+        if(e.ctrlKey == true){
+          if(e.key == "s")
+            e.preventDefault();
+          else if(e.key == "a")
+            e.preventDefault();
+          else if(e.key == "o")
+            e.preventDefault();
+          else if(e.key == "z")
+            e.preventDefault();
+          else if(e.key == "y")
+            e.preventDefault();
+        }
       });
 
     </script>

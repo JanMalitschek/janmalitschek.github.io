@@ -1270,29 +1270,29 @@ var tempDouble;
 var tempI64;
 
 var ASM_CONSTS = {
- 5303796: function() {
+ 5305460: function() {
   Module["emscripten_get_now_backup"] = performance.now;
  },
- 5303851: function($0) {
+ 5305515: function($0) {
   performance.now = function() {
    return $0;
   };
  },
- 5303899: function($0) {
+ 5305563: function($0) {
   performance.now = function() {
    return $0;
   };
  },
- 5303947: function() {
+ 5305611: function() {
   performance.now = Module["emscripten_get_now_backup"];
  },
- 5304002: function() {
+ 5305666: function() {
   return Module.webglContextAttributes.premultipliedAlpha;
  },
- 5304063: function() {
+ 5305727: function() {
   return Module.webglContextAttributes.preserveDrawingBuffer;
  },
- 5304127: function() {
+ 5305791: function() {
   return Module.webglContextAttributes.powerPreference;
  }
 };
@@ -1419,6 +1419,21 @@ function stackTrace() {
  var js = jsStackTrace();
  if (Module["extraStackTrace"]) js += "\n" + Module["extraStackTrace"]();
  return demangleAll(js);
+}
+
+function _DownloadFile(fileName, fileContent) {
+ const blob = new Blob([ UTF8ToString(fileContent) ], {
+  type: "plain/text"
+ });
+ var a = document.createElement("a");
+ document.body.appendChild(a);
+ a.style = "display: none";
+ var url = window.URL.createObjectURL(blob);
+ a.href = url;
+ a.download = UTF8ToString(fileName);
+ a.click();
+ window.URL.revokeObjectURL(url);
+ document.body.removeChild(a);
 }
 
 function _GetJSMemoryInfo(totalJSptr, usedJSptr) {
@@ -14029,6 +14044,7 @@ function checkIncomingModuleAPI() {
 }
 
 var asmLibraryArg = {
+ "DownloadFile": _DownloadFile,
  "GetJSMemoryInfo": _GetJSMemoryInfo,
  "JS_Accelerometer_IsRunning": _JS_Accelerometer_IsRunning,
  "JS_Accelerometer_Start": _JS_Accelerometer_Start,
@@ -14477,6 +14493,7 @@ var asmLibraryArg = {
  "invoke_jjji": invoke_jjji,
  "invoke_v": invoke_v,
  "invoke_vi": invoke_vi,
+ "invoke_vidd": invoke_vidd,
  "invoke_vidi": invoke_vidi,
  "invoke_viffffff": invoke_viffffff,
  "invoke_vifffi": invoke_vifffi,
@@ -14806,6 +14823,8 @@ var dynCall_ijiii = Module["dynCall_ijiii"] = createExportWrapper("dynCall_ijiii
 
 var dynCall_di = Module["dynCall_di"] = createExportWrapper("dynCall_di");
 
+var dynCall_vidd = Module["dynCall_vidd"] = createExportWrapper("dynCall_vidd");
+
 var dynCall_iiiiiifffiiifiii = Module["dynCall_iiiiiifffiiifiii"] = createExportWrapper("dynCall_iiiiiifffiiifiii");
 
 var dynCall_viid = Module["dynCall_viid"] = createExportWrapper("dynCall_viid");
@@ -14831,8 +14850,6 @@ var dynCall_iid = Module["dynCall_iid"] = createExportWrapper("dynCall_iid");
 var dynCall_vidii = Module["dynCall_vidii"] = createExportWrapper("dynCall_vidii");
 
 var dynCall_vijii = Module["dynCall_vijii"] = createExportWrapper("dynCall_vijii");
-
-var dynCall_vidd = Module["dynCall_vidd"] = createExportWrapper("dynCall_vidd");
 
 var dynCall_iiiiiiiiiiiii = Module["dynCall_iiiiiiiiiiiii"] = createExportWrapper("dynCall_iiiiiiiiiiiii");
 
@@ -14924,9 +14941,9 @@ var dynCall_iiffi = Module["dynCall_iiffi"] = createExportWrapper("dynCall_iiffi
 
 var dynCall_iiiifffii = Module["dynCall_iiiifffii"] = createExportWrapper("dynCall_iiiifffii");
 
-var dynCall_viidi = Module["dynCall_viidi"] = createExportWrapper("dynCall_viidi");
-
 var dynCall_viffffff = Module["dynCall_viffffff"] = createExportWrapper("dynCall_viffffff");
+
+var dynCall_viidi = Module["dynCall_viidi"] = createExportWrapper("dynCall_viidi");
 
 var dynCall_iifffii = Module["dynCall_iifffii"] = createExportWrapper("dynCall_iifffii");
 
@@ -15760,6 +15777,17 @@ function invoke_iiiiiiiiii(index, a1, a2, a3, a4, a5, a6, a7, a8, a9) {
  var sp = stackSave();
  try {
   return dynCall_iiiiiiiiii(index, a1, a2, a3, a4, a5, a6, a7, a8, a9);
+ } catch (e) {
+  stackRestore(sp);
+  if (e !== e + 0) throw e;
+  _setThrew(1, 0);
+ }
+}
+
+function invoke_vidd(index, a1, a2, a3) {
+ var sp = stackSave();
+ try {
+  dynCall_vidd(index, a1, a2, a3);
  } catch (e) {
   stackRestore(sp);
   if (e !== e + 0) throw e;

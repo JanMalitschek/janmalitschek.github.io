@@ -1431,14 +1431,30 @@ function _DownloadImage(fileName, fileContent) {
  const blob = new Blob([ byteArray ], {
   type: "image/png"
  });
- DownloadBlob(fileName, blob);
+ var a = document.createElement("a");
+ document.body.appendChild(a);
+ a.style = "display: none";
+ var url = window.URL.createObjectURL(blob);
+ a.href = url;
+ a.download = UTF8ToString(fileName);
+ a.click();
+ window.URL.revokeObjectURL(url);
+ document.body.removeChild(a);
 }
 
 function _DownloadTextFile(fileName, fileContent) {
  const blob = new Blob([ UTF8ToString(fileContent) ], {
   type: "plain/text"
  });
- DownloadBlob(fileName, blob);
+ var a = document.createElement("a");
+ document.body.appendChild(a);
+ a.style = "display: none";
+ var url = window.URL.createObjectURL(blob);
+ a.href = url;
+ a.download = UTF8ToString(fileName);
+ a.click();
+ window.URL.revokeObjectURL(url);
+ document.body.removeChild(a);
 }
 
 function _GetJSMemoryInfo(totalJSptr, usedJSptr) {

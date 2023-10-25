@@ -1270,29 +1270,29 @@ var tempDouble;
 var tempI64;
 
 var ASM_CONSTS = {
- 5306544: function() {
+ 5308384: function() {
   Module["emscripten_get_now_backup"] = performance.now;
  },
- 5306599: function($0) {
+ 5308439: function($0) {
   performance.now = function() {
    return $0;
   };
  },
- 5306647: function($0) {
+ 5308487: function($0) {
   performance.now = function() {
    return $0;
   };
  },
- 5306695: function() {
+ 5308535: function() {
   performance.now = Module["emscripten_get_now_backup"];
  },
- 5306750: function() {
+ 5308590: function() {
   return Module.webglContextAttributes.premultipliedAlpha;
  },
- 5306811: function() {
+ 5308651: function() {
   return Module.webglContextAttributes.preserveDrawingBuffer;
  },
- 5306875: function() {
+ 5308715: function() {
   return Module.webglContextAttributes.powerPreference;
  }
 };
@@ -3602,7 +3602,7 @@ function _LoadFileFromIDB(fileName, callback) {
 }
 
 function _RedirectToLogin() {
- window.location.href = "https://dev.fischertechnik-cloud.com/auth/realms/fischertechnik/protocol/openid-connect/auth?response_type=token&amp;client_id=designstudio&amp;redirect_uri=https%3A%2F%2Fftdesignstudio.beemo.eu&amp;scope=gitlab%3Aupgrade&amp;";
+ document.getElementById("login-link").click();
 }
 
 function _SaveFileToIDB(fileName, fileContent) {
@@ -14462,6 +14462,7 @@ var asmLibraryArg = {
  "invoke_di": invoke_di,
  "invoke_dii": invoke_dii,
  "invoke_diii": invoke_diii,
+ "invoke_fffffff": invoke_fffffff,
  "invoke_ffffffffff": invoke_ffffffffff,
  "invoke_fi": invoke_fi,
  "invoke_fii": invoke_fii,
@@ -14518,7 +14519,6 @@ var asmLibraryArg = {
  "invoke_vidd": invoke_vidd,
  "invoke_vidi": invoke_vidi,
  "invoke_viffffff": invoke_viffffff,
- "invoke_vifffi": invoke_vifffi,
  "invoke_vifi": invoke_vifi,
  "invoke_vifii": invoke_vifii,
  "invoke_vifiii": invoke_vifiii,
@@ -14971,6 +14971,8 @@ var dynCall_iifffii = Module["dynCall_iifffii"] = createExportWrapper("dynCall_i
 
 var dynCall_vifiii = Module["dynCall_vifiii"] = createExportWrapper("dynCall_vifiii");
 
+var dynCall_fffffff = Module["dynCall_fffffff"] = createExportWrapper("dynCall_fffffff");
+
 var dynCall_ffffffffff = Module["dynCall_ffffffffff"] = createExportWrapper("dynCall_ffffffffff");
 
 var dynCall_viiiiiiiiiiiii = Module["dynCall_viiiiiiiiiiiii"] = createExportWrapper("dynCall_viiiiiiiiiiiii");
@@ -14988,8 +14990,6 @@ var dynCall_iiji = Module["dynCall_iiji"] = createExportWrapper("dynCall_iiji");
 var dynCall_jijji = Module["dynCall_jijji"] = createExportWrapper("dynCall_jijji");
 
 var dynCall_diii = Module["dynCall_diii"] = createExportWrapper("dynCall_diii");
-
-var dynCall_vifffi = Module["dynCall_vifffi"] = createExportWrapper("dynCall_vifffi");
 
 var dynCall_vidi = Module["dynCall_vidi"] = createExportWrapper("dynCall_vidi");
 
@@ -15126,6 +15126,8 @@ var dynCall_vifffiiii = Module["dynCall_vifffiiii"] = createExportWrapper("dynCa
 var dynCall_fiffi = Module["dynCall_fiffi"] = createExportWrapper("dynCall_fiffi");
 
 var dynCall_ffi = Module["dynCall_ffi"] = createExportWrapper("dynCall_ffi");
+
+var dynCall_vifffi = Module["dynCall_vifffi"] = createExportWrapper("dynCall_vifffi");
 
 var dynCall_ifiiii = Module["dynCall_ifiiii"] = createExportWrapper("dynCall_ifiiii");
 
@@ -15982,6 +15984,17 @@ function invoke_vifiii(index, a1, a2, a3, a4, a5) {
  }
 }
 
+function invoke_fffffff(index, a1, a2, a3, a4, a5, a6) {
+ var sp = stackSave();
+ try {
+  return dynCall_fffffff(index, a1, a2, a3, a4, a5, a6);
+ } catch (e) {
+  stackRestore(sp);
+  if (e !== e + 0) throw e;
+  _setThrew(1, 0);
+ }
+}
+
 function invoke_ffffffffff(index, a1, a2, a3, a4, a5, a6, a7, a8, a9) {
  var sp = stackSave();
  try {
@@ -16019,17 +16032,6 @@ function invoke_viifffi(index, a1, a2, a3, a4, a5, a6) {
  var sp = stackSave();
  try {
   dynCall_viifffi(index, a1, a2, a3, a4, a5, a6);
- } catch (e) {
-  stackRestore(sp);
-  if (e !== e + 0) throw e;
-  _setThrew(1, 0);
- }
-}
-
-function invoke_vifffi(index, a1, a2, a3, a4, a5) {
- var sp = stackSave();
- try {
-  dynCall_vifffi(index, a1, a2, a3, a4, a5);
  } catch (e) {
   stackRestore(sp);
   if (e !== e + 0) throw e;

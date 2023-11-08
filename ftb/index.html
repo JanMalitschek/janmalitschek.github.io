@@ -58,15 +58,15 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/ftDesignStudioV1.4.10a.loader.js";
+      var loaderUrl = buildUrl + "/ftDesignStudioV1.4.13a.loader.js";
       var config = {
-        dataUrl: buildUrl + "/ftDesignStudioV1.4.10a.data",
-        frameworkUrl: buildUrl + "/ftDesignStudioV1.4.10a.framework.js",
-        codeUrl: buildUrl + "/ftDesignStudioV1.4.10a.wasm",
+        dataUrl: buildUrl + "/ftDesignStudioV1.4.13a.data",
+        frameworkUrl: buildUrl + "/ftDesignStudioV1.4.13a.framework.js",
+        codeUrl: buildUrl + "/ftDesignStudioV1.4.13a.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Jan Malitschek",
         productName: "ft Design Studio",
-        productVersion: "1.4.10a",
+        productVersion: "1.4.13a",
         showBanner: unityShowBanner,
       };
 
@@ -125,10 +125,10 @@
         unityGameInstance.SendMessage("Managers", "SaveToIDB");
         e.preventDefault();
 
-        // var confirmationMessage = "Exit ft DesignStudio?\nYour current progress will be saved locally.";
+        var confirmationMessage = "Exit ft DesignStudio?\nYour current progress will be saved locally.";
 
-        // (e || window.event).returnValue = confirmationMessage; //Gecko + IE
-        // return confirmationMessage;                            //Webkit, Safari, Chrome
+        (e || window.event).returnValue = confirmationMessage; //Gecko + IE
+        return confirmationMessage;                            //Webkit, Safari, Chrome
       });
 
       //Prevent scroll clicking

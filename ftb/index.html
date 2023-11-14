@@ -58,15 +58,15 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/ftDesignStudioV1.4.13a.loader.js";
+      var loaderUrl = buildUrl + "/ftDesignStudioV1.4.18a.loader.js";
       var config = {
-        dataUrl: buildUrl + "/ftDesignStudioV1.4.13a.data",
-        frameworkUrl: buildUrl + "/ftDesignStudioV1.4.13a.framework.js",
-        codeUrl: buildUrl + "/ftDesignStudioV1.4.13a.wasm",
+        dataUrl: buildUrl + "/ftDesignStudioV1.4.18a.data",
+        frameworkUrl: buildUrl + "/ftDesignStudioV1.4.18a.framework.js",
+        codeUrl: buildUrl + "/ftDesignStudioV1.4.18a.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Jan Malitschek",
         productName: "ft Design Studio",
-        productVersion: "1.4.13a",
+        productVersion: "1.4.18a",
         showBanner: unityShowBanner,
       };
 
@@ -150,6 +150,10 @@
           else if(e.key == "z")
             e.preventDefault();
           else if(e.key == "y")
+            e.preventDefault();
+        }
+        else{
+          if(e.key == "Tab")
             e.preventDefault();
         }
       });

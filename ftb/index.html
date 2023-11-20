@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
-    <a style="display: none;" id="login-link" href="https://dev.fischertechnik-cloud.com/auth/realms/fischertechnik/protocol/openid-connect/auth?response_type=token&amp;client_id=designstudio&amp;redirect_uri=https%3A%2F%2Fftdesignstudio.beemo.eu&amp;scope=gitlab%3Aupgrade&amp;">Login over Keycloak</a>
+    <a style="display: none;" id="login-link" href="$LOGIN_URL">Login over Keycloak</a>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
@@ -58,15 +58,15 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/ftDesignStudioV1.4.18a.loader.js";
+      var loaderUrl = buildUrl + "/ftDesignStudioV1.0.0.loader.js";
       var config = {
-        dataUrl: buildUrl + "/ftDesignStudioV1.4.18a.data",
-        frameworkUrl: buildUrl + "/ftDesignStudioV1.4.18a.framework.js",
-        codeUrl: buildUrl + "/ftDesignStudioV1.4.18a.wasm",
+        dataUrl: buildUrl + "/ftDesignStudioV1.0.0.data",
+        frameworkUrl: buildUrl + "/ftDesignStudioV1.0.0.framework.js",
+        codeUrl: buildUrl + "/ftDesignStudioV1.0.0.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Jan Malitschek",
         productName: "ft Design Studio",
-        productVersion: "1.4.18a",
+        productVersion: "1.0.0",
         showBanner: unityShowBanner,
       };
 
@@ -99,6 +99,7 @@
         canvas.style.height = "600px";
       }
 
+      canvas.style.background = "url('" + buildUrl + "/ftDesignStudioV1.0.0.jpg') center / cover";
       loadingBar.style.display = "block";
       
       var unityGameInstance = null;
